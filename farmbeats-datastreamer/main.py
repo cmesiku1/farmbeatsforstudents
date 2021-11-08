@@ -72,7 +72,7 @@ def main():
         if data_settings.logging:
             logged = False
             current_time = time.time()
-            if current_time - data_settings.previous_loggin_time > 3:
+            if current_time - data_settings.previous_logging_time > 3:
                     data_logger.log_data(data_string)
                     data_settings.previous_logging_time = current_time
                     logged = True
