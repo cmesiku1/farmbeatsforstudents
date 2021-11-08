@@ -71,10 +71,10 @@ def main():
         # ------------------ data logger ----------------#
         if data_settings.logging:
             logged = False
-            if data_settings.previous_logging_time != datetime.datetime.now().hour:
-                if datetime.datetime.now().minute <= 2:
+            current_time = time.time()
+            if current_time - data_settings.previous_loggin_time > 3:
                     data_logger.log_data(data_string)
-                    data_settings.previous_logging_time = datetime.datetime.now().hour
+                    data_settings.previous_logging_time = current_time
                     logged = True
 
             if data_snapshot and not logged:
